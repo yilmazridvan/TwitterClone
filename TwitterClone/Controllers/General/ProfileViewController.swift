@@ -88,7 +88,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         } else if yPosition < 0 && !isStatusBarHidden {
             isStatusBarHidden = true
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear) { [weak self] in
-                self?.statusBar.layer.opacity = 1
+                self?.statusBar.layer.opacity = 0
             } completion: { _ in }
         }
     }

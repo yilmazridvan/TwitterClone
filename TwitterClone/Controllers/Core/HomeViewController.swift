@@ -46,6 +46,7 @@ class HomeViewController: UIViewController {
         view.addSubview(timelineTableView)
         timelineTableView.delegate = self
         timelineTableView.dataSource = self
+                
         configureNavigationBar()
     }
     
@@ -64,7 +65,6 @@ class HomeViewController: UIViewController {
             
         }
     }
-    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {

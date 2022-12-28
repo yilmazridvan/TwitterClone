@@ -125,6 +125,13 @@ class ProfileDataFormViewController: UIViewController {
             self?.submitButton.isEnabled = buttomState
         }
         .store(in: &subscriptions)
+        
+        viewModel.$isOnboardingFinish.sink { [weak self] success in
+            if success {
+                self?.dismiss(animated: true)
+            }
+        }
+        .store(in: &subscriptions)
     }
     
     @objc private func didUpdateDisplayName() {

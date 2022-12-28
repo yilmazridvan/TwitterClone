@@ -83,10 +83,9 @@ class ProfileTableViewHeader: UIView {
         return label
     }()
     
-    private let followerCountLabel: UILabel = {
+    var followerCountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "285"
         label.textColor = .label
         label.font = .systemFont(ofSize: 14, weight: .bold)
         return label
@@ -101,16 +100,15 @@ class ProfileTableViewHeader: UIView {
         return label
     }()
     
-    private let followingCountLabel: UILabel = {
+    var followingCountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "314"
         label.textColor = .label
         label.font = .systemFont(ofSize: 14, weight: .bold)
         return label
     }()
     
-    private let joinDateLabel: UILabel = {
+    var joinDateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Joined Dec 2022"
@@ -127,47 +125,44 @@ class ProfileTableViewHeader: UIView {
         return imageView
     }()
     
-    private let userBioLabel: UILabel = {
+    var userBioLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 3
-        label.text = "iOS Developer"
         label.textColor = .label
         return label
     }()
     
-    private let usernameLabel: UILabel = {
+    var usernameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "@ridvanyilmaz"
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .secondaryLabel
         return label
     }()
     
-    private let displayNameLabel: UILabel = {
+    var displayNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Rıdvan Yılmaz"
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .label
         return label
     }()
         
-    private let profileAvatarImageView: UIImageView = {
+    var profileAvatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 40
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "profilePicture")
         imageView.backgroundColor = .black
         imageView.layer.borderWidth = 2.0
         imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
-    private let profileHeaderImageView: UIImageView = {
+    var profileHeaderImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "headerPicture")

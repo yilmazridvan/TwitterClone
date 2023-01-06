@@ -42,6 +42,10 @@
 		CCF86A092959DF6D006A33C4 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF86A082959DF6D006A33C4 /* StorageManager.swift */; };
 		CCF86A0B295C8249006A33C4 /* ProfileViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF86A0A295C8249006A33C4 /* ProfileViewViewModel.swift */; };
 		CCF86A0E295C98E3006A33C4 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = CCF86A0D295C98E3006A33C4 /* SDWebImage */; };
+		CCF86A1429670DF9006A33C4 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF86A1329670DF9006A33C4 /* Extension+UIColor.swift */; };
+		CCF86A162967306E006A33C4 /* TweetComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF86A152967306E006A33C4 /* TweetComposeViewController.swift */; };
+		CCF86A18296762BF006A33C4 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF86A17296762BF006A33C4 /* Tweet.swift */; };
+		CCF86A1A2967638B006A33C4 /* TweetComposeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF86A192967638B006A33C4 /* TweetComposeViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +76,10 @@
 		CCF86A06295736F4006A33C4 /* ProfileDataFormViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataFormViewViewModel.swift; sourceTree = "<group>"; };
 		CCF86A082959DF6D006A33C4 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		CCF86A0A295C8249006A33C4 /* ProfileViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewViewModel.swift; sourceTree = "<group>"; };
+		CCF86A1329670DF9006A33C4 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		CCF86A152967306E006A33C4 /* TweetComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetComposeViewController.swift; sourceTree = "<group>"; };
+		CCF86A17296762BF006A33C4 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		CCF86A192967638B006A33C4 /* TweetComposeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetComposeViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,7 @@
 		CC69B3A3293F688E00D2B285 /* TwitterClone */ = {
 			isa = PBXGroup;
 			children = (
+				CCF86A0F29670DC4006A33C4 /* Utility */,
 				CCF869FD2955F3BE006A33C4 /* Models */,
 				CC69B3EB294CA64D00D2B285 /* Networking */,
 				CC69B3E8294C983200D2B285 /* ViewModels */,
@@ -165,6 +174,7 @@
 			children = (
 				CC69B3C62943721200D2B285 /* ProfileViewController.swift */,
 				CCF86A04295735C6006A33C4 /* ProfileDataFormViewController.swift */,
+				CCF86A152967306E006A33C4 /* TweetComposeViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -186,6 +196,7 @@
 				CCF86A022957311E006A33C4 /* HomeViewViewModel.swift */,
 				CCF86A06295736F4006A33C4 /* ProfileDataFormViewViewModel.swift */,
 				CCF86A0A295C8249006A33C4 /* ProfileViewViewModel.swift */,
+				CCF86A192967638B006A33C4 /* TweetComposeViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -204,8 +215,25 @@
 			isa = PBXGroup;
 			children = (
 				CCF869FE2955F3FA006A33C4 /* TwitterUser.swift */,
+				CCF86A17296762BF006A33C4 /* Tweet.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CCF86A0F29670DC4006A33C4 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				CCF86A1029670DCE006A33C4 /* Extensions */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		CCF86A1029670DCE006A33C4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CCF86A1329670DF9006A33C4 /* Extension+UIColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +325,7 @@
 			files = (
 				CC69B3BC293F7E8100D2B285 /* SearchViewController.swift in Sources */,
 				CC69B3ED294CA66200D2B285 /* AuthManager.swift in Sources */,
+				CCF86A162967306E006A33C4 /* TweetComposeViewController.swift in Sources */,
 				CC69B3A9293F688E00D2B285 /* MainTabBarViewController.swift in Sources */,
 				CCF86A092959DF6D006A33C4 /* StorageManager.swift in Sources */,
 				CCF869FA29521F0F006A33C4 /* LoginViewController.swift in Sources */,
@@ -305,10 +334,13 @@
 				CCF86A0B295C8249006A33C4 /* ProfileViewViewModel.swift in Sources */,
 				CC69B3A5293F688E00D2B285 /* AppDelegate.swift in Sources */,
 				CC69B3E6294B9E2100D2B285 /* RegisterViewController.swift in Sources */,
+				CCF86A18296762BF006A33C4 /* Tweet.swift in Sources */,
 				CC69B3BE293F7E8F00D2B285 /* NotificationsViewController.swift in Sources */,
 				CC69B3A7293F688E00D2B285 /* SceneDelegate.swift in Sources */,
+				CCF86A1A2967638B006A33C4 /* TweetComposeViewViewModel.swift in Sources */,
 				CC69B3BA293F7E7000D2B285 /* HomeViewController.swift in Sources */,
 				CCF86A07295736F4006A33C4 /* ProfileDataFormViewViewModel.swift in Sources */,
+				CCF86A1429670DF9006A33C4 /* Extension+UIColor.swift in Sources */,
 				CC69B3C72943721200D2B285 /* ProfileViewController.swift in Sources */,
 				CC69B3C0293F7E9C00D2B285 /* DirectMessagesViewController.swift in Sources */,
 				CC69B3C92944C64700D2B285 /* ProfileTableViewHeader.swift in Sources */,

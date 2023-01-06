@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .white
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
-        button.backgroundColor = UIColor(red: 29/255, green: 161/255, blue: 242/255, alpha: 1)
+        button.backgroundColor = .twitterBlueColor
         button.layer.cornerRadius = 25
         button.layer.masksToBounds = true
         button.isEnabled = false
@@ -106,7 +106,7 @@ class LoginViewController: UIViewController {
         view.addSubview(passwordTextField)
         view.addSubview(loginButton)
         loginButton.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
-        view.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(didTapToDismiss)))
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapToDismiss)))
         configureConstraints()
         bindViews()
 

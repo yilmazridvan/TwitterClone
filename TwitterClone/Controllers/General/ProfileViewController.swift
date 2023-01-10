@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 import SDWebImage
+import FirebaseFirestore
 
 class ProfileViewController: UIViewController {
     
@@ -101,7 +102,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
+    }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let yPosition = scrollView.contentOffset.y
         

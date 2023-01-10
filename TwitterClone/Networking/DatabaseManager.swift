@@ -43,5 +43,18 @@ class DatabaseManager {
             .map { _ in true }
             .eraseToAnyPublisher()
     }
+    
+    func collectionTweets(retreiveTweets forUserID: String) -> AnyPublisher<[Tweet], Error> {
+        db.collection(tweetsPath).whereField("authorID", isEqualTo: forUserID)
+            .getDocuments()
+            .tryMap(\.documents)
+            .tryMap { snapshots in
+                try snapshots.map({
+                    try $0.data(as: Tweet.self)
+                })
+            }
+            .eraseToAnyPublisher()
+    }
+    
 }
 

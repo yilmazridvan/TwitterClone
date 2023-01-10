@@ -16,7 +16,7 @@ protocol TweetTableViewCellDelegate: AnyObject {
 }
 
 class TweetTableViewCell: UITableViewCell {
-    
+        
     static let identifier = "TweetTableViewCell"
     
     weak var delegate: TweetTableViewCellDelegate?
@@ -32,15 +32,13 @@ class TweetTableViewCell: UITableViewCell {
         imageView.layer.cornerRadius = 25
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "profilePicture")
         imageView.backgroundColor = .black
         return imageView
     }()
     
-    private let displayName: UILabel = {
+    private let displayNameLabel: UILabel = {
         
         let label = UILabel()
-        label.text = "Rıdvan Yılmaz"
         label.font = .systemFont(ofSize: 14, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -49,7 +47,6 @@ class TweetTableViewCell: UITableViewCell {
     private let usernameLabel: UILabel = {
         
         let label = UILabel()
-        label.text = "@ridvanyilmaz"
         label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -60,7 +57,6 @@ class TweetTableViewCell: UITableViewCell {
         
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "this is my first tweet. all animals are equal but some animals are more equal. this sentence is from animal farm from george orwell."
         label.numberOfLines = 0
         return label
         
@@ -109,7 +105,7 @@ class TweetTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(avatarImageView)
-        contentView.addSubview(displayName)
+        contentView.addSubview(displayNameLabel)
         contentView.addSubview(usernameLabel)
         contentView.addSubview(tweetTextContentLabel)
         contentView.addSubview(replyButton)
@@ -125,6 +121,7 @@ class TweetTableViewCell: UITableViewCell {
         fatalError("")
     }
     
+    
     private func configureConstraints() {
         let avatarImageViewConstraints = [
             avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
@@ -133,46 +130,46 @@ class TweetTableViewCell: UITableViewCell {
             avatarImageView.widthAnchor.constraint(equalToConstant: 50)
         ]
         let displayNameConstraints = [
-            displayName.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 5),
-            displayName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 14)
+            displayNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 5),
+            displayNameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor)
         ]
         
         let usernameLabelConstraints = [
-            usernameLabel.leadingAnchor.constraint(equalTo: displayName.trailingAnchor, constant: 5),
-            usernameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 14)
+            usernameLabel.leadingAnchor.constraint(equalTo: displayNameLabel.trailingAnchor, constant: 5),
+            usernameLabel.topAnchor.constraint(equalTo: displayNameLabel.topAnchor)
         ]
         
         let tweetTextContectLabelConstraints = [
             tweetTextContentLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 5),
-            tweetTextContentLabel.topAnchor.constraint(equalTo: displayName.bottomAnchor, constant: 5),
+            tweetTextContentLabel.topAnchor.constraint(equalTo: displayNameLabel.bottomAnchor, constant: 5),
             tweetTextContentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
         ]
         
         let replyButtonConstraints = [
             replyButton.leadingAnchor.constraint(equalTo: tweetTextContentLabel.leadingAnchor),
             replyButton.topAnchor.constraint(equalTo: tweetTextContentLabel.bottomAnchor, constant: 10),
-            replyButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant:  10)
+            replyButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ]
         
         let retweetButtonConstraints = [
             
             retweetButton.leadingAnchor.constraint(equalTo: replyButton.trailingAnchor, constant: actionSpacing),
             retweetButton.topAnchor.constraint(equalTo: tweetTextContentLabel.bottomAnchor, constant: 10),
-            retweetButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant:  10)
+            retweetButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ]
         
         let likeButtonConstraints = [
             
             likeButton.leadingAnchor.constraint(equalTo: retweetButton.trailingAnchor, constant: actionSpacing),
             likeButton.topAnchor.constraint(equalTo: tweetTextContentLabel.bottomAnchor, constant: 10),
-            likeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant:  10)
+            likeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ]
         
         let shareButtonConstraints = [
             
             shareButton.leadingAnchor.constraint(equalTo: likeButton.trailingAnchor, constant: actionSpacing),
             shareButton.topAnchor.constraint(equalTo: tweetTextContentLabel.bottomAnchor, constant: 10),
-            shareButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant:  10)
+            shareButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ]
         
         NSLayoutConstraint.activate(avatarImageViewConstraints)
@@ -209,6 +206,13 @@ class TweetTableViewCell: UITableViewCell {
     
     @objc private func didTapShare() {
         delegate?.tweetTableViewCellDidTapShare()
+    }
+    
+    func configureTweets(with displayName: String, username: String, tweetTextContent: String, avatarPath: String) {
+        displayNameLabel.text = displayName
+        usernameLabel.text = "@\(username)"
+        tweetTextContentLabel.text = tweetTextContent
+        avatarImageView.sd_setImage(with: URL(string: avatarPath))
     }
 
 }
